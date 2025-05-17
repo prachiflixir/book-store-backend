@@ -19,8 +19,29 @@ exports.createUser = async ( req, res) => {
               message :"Mobile Number Already Exists"  
             })
         }
-        //if send random password
-        
+        //if generate random password
+        const tempPassword = genericHelper.generateTempPassword();
+
+        // create user object
+        const user = {
+            userName : req.body.userName,
+            email : req.body.email,
+            password : bycrypt(req.body.password),
+            mobileNo : req.body.mobileNo
+
+        }
+
+        const savedUser = await userModel.create(user);
+
+        //send mail to email for password
+
+        return res.status(200).send({
+            status :true,
+            message : "User Created Successfully",
+            data:savedUser
+        })
+
+
     } catch (error) {
         return res.status(500).send({
             status : false,
