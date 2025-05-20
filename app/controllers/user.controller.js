@@ -1,6 +1,6 @@
-import userModel from "../models/user.model";
-import bycrypt from 'bcrypt';
-import genericHelper from "../helpers/mail.helper"
+const userModel =  require("../models/user.model");
+const bycrypt =  require('bcrypt');
+const genericHelper =  require("../helpers/mail.helper")
 
 exports.createUser = async ( req, res) => {
 
