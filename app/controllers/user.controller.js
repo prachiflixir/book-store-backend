@@ -20,7 +20,7 @@ exports.createUser = async ( req, res) => {
             })
         }
         //if generate random password
-        const tempPassword = genericHelper.generateTempPassword();
+        // const tempPassword = genericHelper.generateTempPassword();
 
         // create user object
         const user = {
